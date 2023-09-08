@@ -19,11 +19,9 @@ class BankAccount:
 
     def decrease_balance(self, income: float):
         self.balance -= income
-        try:
-            if self.balance < 0:
-                raise ValueError
-        except Exception:
-            print('Недостаточно средств.')
+        if self.balance < 0:
+            raise ValueError('Недостаточно средств.')
+
 
 if __name__ == '__main__':
     users_account = BankAccount('Mishakjv Konstantin', 100.0)
