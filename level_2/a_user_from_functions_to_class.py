@@ -6,13 +6,9 @@
 """
 
 
-def make_username_capitalized(username: str):
-    return username.capitalize()
-
-
-def generate_short_user_description(username: str, user_id: int, name: str):
-    return f'User with id {user_id} has {username} username and {name} name'
-
-
 class User:
-    pass  # код писать тут
+    def make_username_capitalized(self, username: str):
+        return username.capitalize()
+
+    def generate_short_user_description(self, username: str, user_id: int, name: str):
+        return f'User with id {user_id} has {username} username and {name} name'

@@ -26,8 +26,11 @@ class Product:
 
 
 class AlcoholProduct(Product):
-    pass  # код писать тут
+    def is_available(self):
+        current_hour = datetime.now().hour
+        return super().is_available() and current_hour in range(5, 23)
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    beer = AlcoholProduct('Kilikia', 100, 100)
+    print(beer.is_available())
