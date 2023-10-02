@@ -26,8 +26,22 @@ class Product:
 
 
 class FoodProduct(Product):
-    pass  # код писать тут
+    def __init__(self, title, quantity, expiration_date):
+        super().__init__(title, quantity)
+        self.expiration_date = expiration_date
+
+    def get_full_info(self):
+        return f'Product {self.title}, {self.quantity} in stock, expiration date: {self.expiration_date}'
+
+    def is_available(self):
+        return super().is_available() and self.expiration_date > datetime.now()
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    light_bulb = Product('Лампочка', 8)
+    print(light_bulb.get_full_info())
+    print(light_bulb.is_available())
+
+    cheese = FoodProduct('Сыр плавленный', 10, datetime(2023, 9, 29))
+    print(cheese.get_full_info())
+    print(cheese.is_available())
